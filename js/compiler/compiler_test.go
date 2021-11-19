@@ -74,7 +74,9 @@ func TestTransform(t *testing.T) {
 		c.COpts.SourceMapLoader = func(string) ([]byte, error) { return nil, errors.New("shouldn't be called") }
 		src, _, err := c.Transform("()=> true", "test.js", nil)
 		assert.NoError(t, err)
-		assert.Equal(t, `"use strict";() => true;
+		assert.Equal(t, `"use strict";
+
+() => true;
 //# sourceMappingURL=k6://internal-should-not-leak/file.map`, src)
 	})
 }
