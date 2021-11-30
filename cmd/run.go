@@ -129,7 +129,7 @@ a commandline interface for interacting with it.`,
 			if err != nil {
 				return err
 			}
-			conf, err := getConsolidatedConfig(afero.NewOsFs(), cliConf, initRunner)
+			conf, err := getConsolidatedConfig(afero.NewOsFs(), cliConf, initRunner.GetOptions())
 			if err != nil {
 				return err
 			}
