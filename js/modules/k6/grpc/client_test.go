@@ -785,7 +785,7 @@ func TestResolveFileDescriptors(t *testing.T) {
 		{
 			name:                "SuccessMultiPackages",
 			pkgs:                []string{"mypkg1", "mypkg2", "mypkg3"},
-			services:            []string{"Service1", "Service2", "Service3"},
+			services:            []string{"Service", "Service", "Service"},
 			expectedDescriptors: 3,
 		},
 		{

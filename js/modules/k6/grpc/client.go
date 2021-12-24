@@ -385,8 +385,11 @@ func resolveServiceFileDescriptors(
 }
 
 // sendReceiver is a smaller interface for decoupling
-// from reflectpb.ServerReflection_ServerReflectionInfoClient
-// that has the dependency from grpc.ClientStream.
+// from `reflectpb.ServerReflection_ServerReflectionInfoClient`,
+// that has the dependency from `grpc.ClientStream`,
+// which is too much in the case the requirement is to just make a reflection's request.
+// It makes the API more restricted and with a controlled surface,
+// in this way the testing should be easier also.
 type sendReceiver interface {
 	Send(*reflectpb.ServerReflectionRequest) error
 	Recv() (*reflectpb.ServerReflectionResponse, error)
